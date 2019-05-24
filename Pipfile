@@ -11,4 +11,4 @@ pytest = "==2.3.4"
 matplotlib = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3"
