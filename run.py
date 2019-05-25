@@ -16,8 +16,8 @@ divider = 5.7 # see https://www.enigma14.eu/wiki/AD_Converter_PCF8591_for_Raspbe
 
 
 if __name__ == '__main__':
-    date: str = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-    charge: str = ""
+    date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    charge = ""
 
     """
     Batería al 100% (totalmente cargada) = 12,7 V (voltios)
