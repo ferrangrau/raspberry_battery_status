@@ -39,7 +39,6 @@ if __name__ == '__main__':
     ax.plot(t, s)
 
     ax.set(xlabel='time', ylabel='voltage (V)')
-    ax.xticks(np.arange(min(t), max(t)+1, 1.0))
     ax.grid()
 
     fig.savefig("battery.png")
