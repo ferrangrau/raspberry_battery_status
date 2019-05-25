@@ -34,14 +34,15 @@ if __name__ == '__main__':
         value = ref_voltage*divider*pin.value
         print("read: {}".format(value))
 
-        if value < 11.6:
+        num = float(value)
+        if num < 11.6:
             charge = "0%"
-        elif value < 12.0:
+        elif num < 12.0:
             charge = "30%"
-        elif value < 12.2:
+        elif num < 12.2:
             charge = "50%"
-        elif charge < 12.5:
-            value = "75%"
+        elif num < 12.5:
+            charge = "75%"
         else:
             charge = "100%"
 
