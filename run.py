@@ -1,12 +1,12 @@
 #! /usr/bin/env python3
-
+import ftplib
+import os
 import sys
 from datetime import datetime
 from quick2wire.parts.pcf8591 import *
 from quick2wire.i2c import I2CMaster
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 
 address = 1
@@ -42,3 +42,10 @@ if __name__ == '__main__':
     ax.grid()
 
     fig.savefig("battery.png")
+
+    # upload to FTP
+    session = ftplib.FTP(os.environ['URL'], os.environ['USERNAME'], os.environ['PASSWORD'])
+    file = open('battery.png', 'rb')
+    session.storbinary('STOR battery.png', file)
+    file.close()
+    session.quit()
