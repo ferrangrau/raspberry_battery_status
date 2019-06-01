@@ -3,8 +3,8 @@ import ftplib
 import os
 import sys
 from datetime import datetime
-
-import requests
+from quick2wire.parts.pcf8591 import *
+from quick2wire.i2c import I2CMaster
 
 import matplotlib.pyplot as plt
 
@@ -26,27 +26,28 @@ if __name__ == '__main__':
     Batería al 30% = 12 V
     Batería descargada = 11,6 V
     """
+    # Get new Value
+    with I2CMaster() as i2c:
+        adc = PCF8591(i2c, FOUR_SINGLE_ENDED)
+        pin = adc.single_ended_input(pin_index)
 
-    result = requests.get("http://192.168.1.120/bat=ON")
+        value = ref_voltage*divider*pin.value
+        print("read: {}".format(value))
 
-    value = result.text[:result.text.index("<br>")]
-    value = float(value[value.index("Battery Voltage =")+17:].strip())
-    print("read: {}".format(value))
+        num = float(value)
+        if num < 11.6:
+            charge = "0%"
+        elif num < 12.0:
+            charge = "30%"
+        elif num < 12.2:
+            charge = "50%"
+        elif num < 12.5:
+            charge = "75%"
+        else:
+            charge = "100%"
 
-    num = float(value)
-    if num < 11.6:
-        charge = "0%"
-    elif num < 12.0:
-        charge = "30%"
-    elif num < 12.2:
-        charge = "50%"
-    elif num < 12.5:
-        charge = "75%"
-    else:
-        charge = "100%"
-
-    with open("data.txt", "a") as myfile:
-        myfile.write("{}, {}\n".format(date, value))
+        with open("data.txt", "a") as myfile:
+            myfile.write("{}, {}\n".format(date, value))
 
     # Data for plotting
     t = []
