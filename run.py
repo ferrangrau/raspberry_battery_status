@@ -19,18 +19,19 @@ if __name__ == '__main__':
     date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     charge = ""
 
-    """
-    Batería al 100% (totalmente cargada) = 12,7 V (voltios)
-    Batería al 75% = 12,5 V
-    Batería al 50% = 12,2 V
-    Batería al 30% = 12 V
-    Batería descargada = 11,6 V
-    """
+    filename = "data_{}.txt".format(datetime.now().strftime("%m"))
 
-    result = requests.get("http://192.168.1.25/bat=ON")
+    # if last modification date of the file was one year before, empty file
+    if os.path.isfile(filename):
+        stat = os.stat(filename)
 
-    value = result.text[:result.text.index("<br>")]
-    value = float(value[value.index("Battery Voltage =")+17:].strip())
+        if datetime.fromtimestamp(stat.st_mtime).strftime("%m") < datetime.now().strftime("%m"):
+            open(filename, 'w').close()
+
+    # Get current Value
+    result = requests.get("http://192.168.1.25/")
+
+    value = result.text
     print("read: {}".format(value))
 
     num = float(value)
@@ -45,7 +46,7 @@ if __name__ == '__main__':
     else:
         charge = "100%"
 
-    with open("data.txt", "a") as myfile:
+    with open(filename, "a") as myfile:
         myfile.write("{}, {}\n".format(date, value))
 
     # Data for plotting
@@ -60,7 +61,7 @@ if __name__ == '__main__':
     fig, ax = plt.subplots()
     ax.plot(t, s)
 
-    ax.set(xlabel="{} - {}".format(date, charge), ylabel='voltage (V)')
+    ax.set(xlabel="{} - {} - {}V".format(date, charge, value), ylabel='voltage (V)')
     ax.grid()
 
     fig.savefig("battery.png")
