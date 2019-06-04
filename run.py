@@ -52,7 +52,7 @@ if __name__ == '__main__':
     # Data for plotting
     t = []
     s = []
-    with open('data.txt') as fp:
+    with open(filename) as fp:
         for cnt, line in enumerate(fp):
             data = line.split(",")
             t.append(cnt)
