@@ -27,7 +27,7 @@ if __name__ == '__main__':
     Batería descargada = 11,6 V
     """
 
-    result = requests.get("http://192.168.1.120/bat=ON")
+    result = requests.get("http://192.168.1.25/bat=ON")
 
     value = result.text[:result.text.index("<br>")]
     value = float(value[value.index("Battery Voltage =")+17:].strip())

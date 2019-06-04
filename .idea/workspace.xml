@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cff6316-cdea-434b-b3ad-326dc1e403d8" name="Default Changelist" comment="" />
+    <list default="true" id="4cff6316-cdea-434b-b3ad-326dc1e403d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +15,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
+            <state relative-caret-position="99">
               <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
@@ -121,16 +123,18 @@
       <workItem from="1559239177916" duration="599000" />
       <workItem from="1559293756414" duration="599000" />
       <workItem from="1559397024111" duration="2086000" />
+      <workItem from="1559552843369" duration="599000" />
+      <workItem from="1559630043896" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18852000" />
+    <option name="totallyTimeSpent" value="20050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="27" width="1870" height="1053" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2911184" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29769737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -177,18 +181,18 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_OLD.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
+        <state relative-caret-position="99">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_OLD.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
